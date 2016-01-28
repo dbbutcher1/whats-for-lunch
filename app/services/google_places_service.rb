@@ -6,6 +6,7 @@ class GooglePlacesService
     g_client = GooglePlaces::Client.new(Rails.application.secrets.google_places_api_key)
     lat, long = address.coordinates
 
+    # Caching responses due to limitations with the google api. 1000 requests per day
     results = Rails.cache.fetch("#{address.id}/places_query", expires_in: 12.hours) do
       g_client.spots(lat, long, types: ['restaurant', 'food'])
     end

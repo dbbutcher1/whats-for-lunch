@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="
+      #user-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle Navigation</span>
+      </button>
+      <a class="navbar-brand" href="#" style="text-decoration: none;">What's for Lunch?</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="user-navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "My Profile", user_path %></li>
+        <li><%= link_to "What to eat?", restaurants_path %></li>
+        <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? %>
+            <li><%= link_to "Sign out", destroy_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</nav>

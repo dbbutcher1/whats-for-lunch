@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4">
+    <h1><%= @restaurant.name %></h1>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+  <%= form_for @user_rating, url: restaurant_path(@restaurant), method: :patch do |f| %>
+    <div class="row">
+      <div class="col-xs-1 col-xs-offset-4">
+        <%= f.label :rating, "How was it?" %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.number_field :rating, within: 0..5, step: 0.5 %>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-xs-4 col-xs-offset-4">
+        <%= f.submit "I've eaten there now" %>
+      </div>
+    </div>
+  <% end %>
+</div>

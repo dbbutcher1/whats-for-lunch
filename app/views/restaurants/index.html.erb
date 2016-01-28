@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4"><h1><%= @restaurant.name %></h1></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-4" style="padding: 15px 0px;">
+    <%= @user_rating.nil? ? "You've never eaten here, you should try it!" : "You've eaten here #{@user_rating.times_had} time(s)" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-offset-4 col-xs-6">
+    <% 
+      # Hacky way to make sure we keep track of traveling through time. 
+      should_time_travel = params[:time_travel].nil? ? {} : { time_travel: DateTime.now.to_i } 
+    %>
+    <%= link_to 'I want to eat here!', edit_restaurant_path({id: @restaurant.id}.merge(should_time_travel)), class: 'button' %>
+    <%= link_to 'Give me something else', restaurants_path({}.merge(should_time_travel)), class: 'button' %>
+  </div>
+</div>

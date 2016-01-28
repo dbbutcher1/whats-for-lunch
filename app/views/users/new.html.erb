@@ -1,0 +1,72 @@
+<%= form_for :user, url: '/user', method: :post do |f| %>
+  <div class = "row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <%= f.label :email %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <%= f.label :password %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class="col-xs-2 col-xs-offset-1">
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+
+  <%= f.fields_for :address_attributes do |a| %>
+    <div class = "row">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= a.label :address %> (Optional)
+      </div>
+      <div class="col-xs-4">
+        <%= a.text_field :address %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= a.label :city %> (Optional)
+      </div>
+      <div class="col-xs-4">
+        <%= a.text_field :city %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= a.label :state %> (Optional)
+      </div>
+      <div class="col-xs-4">
+        <%= a.text_field :state %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= a.label :zip_code %>
+      </div>
+      <div class="col-xs-4">
+        <%= a.text_field :zip_code %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class = "row">
+    <div class="col-xs-3 col-xs-offset-3" style="margin-top: 15px;">
+      <%= f.submit "Create" %>
+    </div>
+  </div>   
+<% end %>

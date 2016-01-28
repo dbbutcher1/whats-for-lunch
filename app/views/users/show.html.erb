@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <table class="table">
+      <tr>
+        <th></th>
+        <td><%= link_to "Edit", edit_user_path %></td>
+      </tr>
+      <tr>
+        <th class="">Email</th>
+        <td class=""><%= @user.email %></td>
+      </tr>
+      <% unless @user.address.nil? %>
+        <tr>
+          <th class="">Address</th>
+          <td class=""><%= @user.address.address %></td>
+        </tr>
+        <tr>
+          <th class="">State</th>
+          <td class=""><%= @user.address.state %></td>
+        </tr>
+        <tr>
+          <th class="">City</th>
+          <td class=""><%= @user.address.city %></td>
+        </tr>
+        <tr>
+          <th class="">Zip Code</th>
+          <td class=""><%= @user.address.zip_code %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

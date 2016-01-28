@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsForLunch</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render partial: 'layouts/nav' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% flash.each do |key, value| %>
+      <% puts key %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+  
+  <%= yield %>
+</div>
+
+</body>
+</html>
